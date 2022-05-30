@@ -1,0 +1,13 @@
+{
+    "name": "My New Tab",
+    "version": "1.0.0",
+    "description": "my own new tab page",
+    "manifest_version": 3,
+    "author": "James Kim",
+    "action":{
+        "default_popup": "index.html"
+    },
+    "chrome_url_overrides": {
+        "newtab" : "index.html"
+    }
+}

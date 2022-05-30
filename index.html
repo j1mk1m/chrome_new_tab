@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            New Tab
+        </title>
+        <script src="https://kit.fontawesome.com/042c652e7d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="header">
+            <h2>New Tab</h2>
+        </div>
+        <div id="reminders">
+            <h3>Reminders</h3>
+            <section id="section-userinput">
+                <input type="text" id="enter">
+                <input type="button" value="+" onclick="reminder.add (document.getElementById('enter').value)">
+            </section>
+        </div>
+        <div id="shortcuts">
+            <h3>Shortcuts</h3>
+            <form name="shortcut-form" onsubmit="shortcut.add()">
+                Name: <input type="text" id="name"> URL: <input type="text" id="url">
+                <button type="submit" title="add shortcut">+</button>
+            </form>
+            <section id="shortcut-pannels"></section>
+        </div>
+        <script src="./app.js"></script>
+    </body>
+</html>

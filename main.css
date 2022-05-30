@@ -1,0 +1,67 @@
+h3 {
+    color : #13070C;
+    text-align: center;
+}
+#header {
+    background-color: #5C7457;
+    margin: 5px 5px;
+    padding: 5px;
+    color: #13070C;
+    text-align: center;
+}
+#reminders {
+    width: calc(50% - 25px);
+    margin: 5px 5px;
+    padding: 5px;
+    background-color: #FF8A5B;
+    border-color: #13070C;
+    border-style: solid;
+    overflow: hidden;
+    float: left;
+    color: #13070C;
+}
+#shortcuts {
+    width: calc(50% - 25px);
+    margin: 5px 5px;
+    padding: 5px;
+    background-color: #476C9B;
+    border-color: #13070C;
+    border-style: solid;
+    overflow: hidden;
+    float: right;
+    color: #13070C;
+}
+section input[type=text] {
+    padding: 5px 5px;
+    margin: 5px 0px;
+    float: left;
+    background-color: #F8F4E3;
+    border-color: #13070C;
+    border-style: solid;
+    width: calc(100% - 50px);
+}
+section input[type=button] {
+    margin: 5px 0px;
+    padding: 5px 5px;
+    float: right;
+    background-color: #F8F4E3;
+    border-color: #13070C;
+    border-style: solid;
+    width: 30px;
+}
+
+section a {
+    padding: 5px 5px;
+    margin: 5px 0px;
+    float: left;
+    background-color: #F8F4E3;
+    border-color: #13070C;
+    border-style: solid;
+    width: calc(100% - 50px);
+    text-align: left;
+}
+
+form input[type=text] {
+    width: calc(50% - 80px);
+}
+ 
