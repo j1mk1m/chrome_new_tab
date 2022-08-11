@@ -1,11 +1,12 @@
-var entries = {},
+// Reminder & Shortcuts Section
+let entries = {},
     completed = {},
     shortcuts = {};
 
-var reminder = {
+let reminder = {
     add : function (text) {
         if (text != '') {
-            var key = Date.now();
+            let key = Date.now();
             if (localStorage.entries){
                 entries = JSON.parse(localStorage.entries);
             }
@@ -20,22 +21,22 @@ var reminder = {
         if (localStorage.entries) {
             entries = JSON.parse(localStorage.entries);
         }
-        for (var key in entries) {
-            var newSection = document.createElement('section'),
+        for (let key in entries) {
+            let newSection = document.createElement('section'),
             textbox = document.createElement('input'),
             xbox = document.createElement('input');
-    
-            textbox.type = 'text';
-            textbox.value = entries[key];
-            textbox.setAttribute('onblur', 'reminder.edit(this.parentNode.id, this.value)');
-            xbox.type = 'button';
-            xbox.value = 'x';
-            xbox.setAttribute('onclick', 'reminder.deleteTask(this.parentNode.id)');
-    
             newSection.id = key;
             newSection.appendChild(textbox);
             newSection.appendChild(xbox);
-            var body = document.getElementById("reminders");
+    
+            textbox.type = 'text';
+            textbox.value = entries[key];
+            textbox.addEventListener('blur', (event) => {reminder.edit(key, event.target.value)});
+            xbox.type = 'button';
+            xbox.value = 'x';
+            xbox.addEventListener('click', () => {reminder.deleteTask(key)});
+
+            let body = document.getElementById("reminders");
             if (!document.getElementById(key)) {
                 body.insertBefore(newSection, document.getElementById("section-userinput"));
             }
@@ -60,16 +61,17 @@ var reminder = {
     }
 }
 
-var shortcut = {
+let shortcut = {
     add : function () {
-        var name = document.getElementById('name');
-        var url = document.getElementById('url');
+        let name = document.getElementById('name');
+        let url = document.getElementById('url');
         if (name.value != "" && url.value != "") {
             if (localStorage.shortcuts) {
                 shortcuts = JSON.parse(localStorage.shortcuts);
             }
-            var key = Date.now();
-            shortcuts[key] = [name.value, url.value];
+            let modURL = url.value.indexOf('https://') == 0 ? url.value : "https://" + url.value;
+            let key = Date.now();
+            shortcuts[key] = [name.value, modURL];
             localStorage.shortcuts = JSON.stringify(shortcuts);
             name.value = "";
             url.value = "";
@@ -81,37 +83,26 @@ var shortcut = {
         if (localStorage.shortcuts){
             shortcuts = JSON.parse(localStorage.shortcuts);
         }
-        for (var key in shortcuts) {
-            var arr = shortcuts[key];
-            var name = arr[0];
-            var url = arr[1];
+        for (let key in shortcuts) {
+            let arr = shortcuts[key];
+            let name = arr[0];
+            let url = arr[1];
 
-            var pannel = document.createElement("div");
-            // pannel.className = "shortcut-pannel";
+            let pannel = document.createElement("div");
             pannel.id = key;
 
-            // const xhttp = new XMLHttpRequest();
-            // xhttp.onload = function() {
-            //     var iconref = shortcut.findIcon(xhttp.responseXML);
-            //     var image = document.createElement("img");
-            //     image.src = iconref;
-            //     pannel.appendChild(image);
-            // }
-            // xhttp.open("GET", "https://cors-anywhere.herokuapp.com/" + url);
-            // xhttp.send();
-
-            var link = document.createElement("a");
+            let link = document.createElement("a");
             link.href = url;
             link.innerHTML = name;
 
-            var xbox = document.createElement("input")
+            let xbox = document.createElement("input")
             xbox.type = 'button';
             xbox.value = 'x';
-            xbox.setAttribute('onclick', 'shortcut.remove(this.parentNode.id)');
+            xbox.addEventListener('click', () => {shortcut.remove(key)});
 
             pannel.appendChild(link);
             pannel.appendChild(xbox);
-            var body = document.getElementById("shortcut-pannels");
+            let body = document.getElementById("shortcut-pannels");
             if (!document.getElementById(key)){
                 body.appendChild(pannel);
             }
@@ -129,3 +120,40 @@ var shortcut = {
 }
 reminder.show();
 shortcut.show();
+
+document.getElementById("reminder-button").addEventListener("click", () => {reminder.add (document.getElementById('enter').value)});
+document.getElementById("shortcut-button").addEventListener('submit', () => {shortcut.add()});
+
+// Search Section
+document.getElementById("search-form").addEventListener('submit', (e) => {
+    e.preventDefault();
+    let input = document.getElementById("search-input");
+    location.href = "https://www.google.com/search?q="+(input.value);
+});
+
+
+// Time/Date Section
+let centerEl = document.getElementById("time-section");
+let dateSectionEl = document.getElementById('date-section');
+let timeEl = document.createElement('h1');
+let ampmEl = document.createElement('h5');
+let dateEl = document.createElement('h3');
+timeEl.id = 'time';
+ampmEl.id = 'ampm';
+dateEl.id = 'date';
+centerEl.appendChild(timeEl);
+centerEl.appendChild(ampmEl);
+dateSectionEl.appendChild(dateEl);
+
+const updateTime = () => {
+    let timeEl = document.getElementById('time');
+    let ampmEl = document.getElementById('ampm');
+    let dateEl = document.getElementById('date');
+    let time = new Date();
+    let timeString = time.toLocaleTimeString();
+    timeEl.innerHTML = timeString.substring(0, timeString.length-3);
+    ampmEl.innerHTML = timeString.substring(timeString.length - 2, timeString.length);
+    dateEl.innerHTML = time.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+}
+updateTime();
+setInterval(updateTime, 1000);

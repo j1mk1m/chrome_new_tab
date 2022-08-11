@@ -4,23 +4,37 @@
         <title>
             New Tab
         </title>
-        <script src="https://kit.fontawesome.com/042c652e7d.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="main.css">
+        <script src="https://kit.fontawesome.com/042c652e7d.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="header">
-            <h2>New Tab</h2>
+            <a href="https://mail.google.com/mail/?tab=rm&authuser=0&ogbl"><i class="fas fa-envelope"></i></a>
+            <a href="https://drive.google.com/?authuser=0"><i class="fab fa-google-drive"></i></a>
+            <a href="https://calendar.google.com/calendar?authuser=0"><i class="fas fa-calendar-alt"></i></a>
+            <a href="https://www.google.com/"><i class="fab fa-google"></i></a>
         </div>
+        <div id="center">
+            <div id="time-section"></div>
+            <div id="date-section"></div>
+            <form id="search-form">
+                <input type="text" id="search-input" autofocus autocomplete="off" placeholder="Search...">
+            </form>
+        </div>
+        
         <div id="reminders">
             <h3>Reminders</h3>
             <section id="section-userinput">
                 <input type="text" id="enter">
-                <input type="button" value="+" onclick="reminder.add (document.getElementById('enter').value)">
+                <input type="button" value="+" id="reminder-button">
             </section>
         </div>
+        
+        <div id="inspo"></div>
+
         <div id="shortcuts">
             <h3>Shortcuts</h3>
-            <form name="shortcut-form" onsubmit="shortcut.add()">
+            <form name="shortcut-form" id="shortcut-button">
                 Name: <input type="text" id="name"> URL: <input type="text" id="url">
                 <button type="submit" title="add shortcut">+</button>
             </form>

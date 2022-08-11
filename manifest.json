@@ -1,9 +1,9 @@
 {
-    "name": "My New Tab",
+    "name": "j1mk1m's New Tab",
     "version": "1.0.0",
-    "description": "my own new tab page",
+    "description": "Custom new tab page created by j1mk1m",
     "manifest_version": 3,
-    "author": "James Kim",
+    "author": "James Gyeongwon Kim (j1mk1m)",
     "action":{
         "default_popup": "index.html"
     },
