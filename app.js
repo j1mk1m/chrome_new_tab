@@ -88,7 +88,7 @@ let shortcut = {
             let name = arr[0];
             let url = arr[1];
 
-            let pannel = document.createElement("div");
+            let pannel = document.createElement("section");
             pannel.id = key;
 
             let link = document.createElement("a");
@@ -102,7 +102,7 @@ let shortcut = {
 
             pannel.appendChild(link);
             pannel.appendChild(xbox);
-            let body = document.getElementById("shortcut-pannels");
+            let body = document.getElementById("shortcuts");
             if (!document.getElementById(key)){
                 body.appendChild(pannel);
             }
