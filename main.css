@@ -10,7 +10,7 @@ body {
     display: grid;
     grid-template-columns: 30% 40% 30%;
     grid-template-rows: 20% 40% 40%;
-    background-image: url('./IMG_8526.JPG');
+    background-image: url('./background2.jpg');
     background-size: cover;
     backdrop-filter: blur(5px);
 }
@@ -39,7 +39,7 @@ a {
     margin: 5px 5px;
     padding: 5px;
     text-align: center;
-    grid-column-start: 1;
+    grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
@@ -47,6 +47,52 @@ a {
     flex-direction: row;
     justify-content: right;
     align-items: top;
+}
+
+/* Weather Section (Top Left) */
+#weather {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin: 5px 5px;
+    padding: 5px;
+    color: black;
+}
+
+#weather-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+}
+
+.weather-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #F8F4E3;
+    border-color: #13070C;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    overflow: auto;
+}
+
+.weather-item {
+    margin: 2px 5px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 45px;
+}
+
+.weather-line {
+    padding: 2px;
+    margin: 0px;
 }
 
 /* Center Section */
