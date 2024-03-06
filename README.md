@@ -1,9 +1,9 @@
 # Custom New Tab Chrome Extension
 - Creator: James Gyeongwon Kim (j1mk1m)
-- Version: 1.0
+- Version: 2.0
 - Aug 2022
 
-<img width="1435" alt="Screen Shot 2022-08-10 at 11 50 30 PM" src="https://user-images.githubusercontent.com/68579388/184066601-990e1516-60e1-46a2-8ed6-7118c232e643.png">
+<img width="1436" alt="Screenshot 2024-03-06 at 5 28 47 PM" src="https://github.com/j1mk1m/chrome_new_tab/assets/68579388/7b61ee4e-6863-419d-b446-591fb4dcaa72">
 
 **Features**
 - Icon links to google mail, drive, calendar, and google.com
@@ -11,6 +11,7 @@
 - Search bar for google search
 - Reminder module to create, edit, delete reminders
 - Shortcuts module to manage shortcuts to other sites
+- (NEW) Weather Section with hourly and daily weather info
 
 **Deployment**
 1. Clone this git repo/download files (app.js, index.html, main.css, manifest.json)
