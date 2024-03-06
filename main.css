@@ -82,16 +82,19 @@ a {
     padding: 5px;
     /* background-color: white; */
     border-radius: 10px;
-    overflow: hidden;
     float: left;
     color: black;
+}
+#reminders-pannel {
+    overflow: auto;
+    height: 80%;
 }
 #inspo {
     grid-column-start: 2;
     grid-column-end: 3;
     margin: 5px 5px;
     padding: 5px;
-    overflow: hidden;
+    overflow: auto;
     float: left;
 }
 #shortcuts {
@@ -105,7 +108,7 @@ a {
     /* border-color: #13070C;
     border-style: solid;
     border-radius: 10px; */
-    overflow: hidden;
+    overflow: auto;
     float: right;
     color: black;
 }

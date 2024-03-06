@@ -36,7 +36,7 @@ let reminder = {
             xbox.value = 'x';
             xbox.addEventListener('click', () => {reminder.deleteTask(key)});
 
-            let body = document.getElementById("reminders");
+            let body = document.getElementById("reminders-pannel");
             if (!document.getElementById(key)) {
                 body.insertBefore(newSection, document.getElementById("section-userinput"));
             }
@@ -102,7 +102,7 @@ let shortcut = {
 
             pannel.appendChild(link);
             pannel.appendChild(xbox);
-            let body = document.getElementById("shortcuts");
+            let body = document.getElementById("shortcuts-pannel");
             if (!document.getElementById(key)){
                 body.appendChild(pannel);
             }
